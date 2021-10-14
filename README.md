@@ -13,7 +13,17 @@ In contrast, individuals from Florida tend to have much smaller homeranges, typi
 ## Purpose
 
 The goal of this project is to use an agent based modeling approach to explore which biotic and abiotic factors contribute to the average home range size of an indigo snake population.
+
 ## Model Parameters
 
+* Population Density
+* Mate Pursuit
+* Energy Availability
+* Burrow Availability (?)
+* Philopatry / Age (?)
+* Movement 
 ## Agent Parameters
+
+* Sex 
+* Energy Status
 
