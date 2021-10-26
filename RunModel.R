@@ -12,8 +12,8 @@ energy.sd = 2
 temperature = 85 
 temperature.sd  = 10
 
-# this is done in snakes per cell on average
-popualation.density = 3
+# Need to work this out still, what does population.denity equate too?
+population.density = 3
 
 #############################################
 #############################################
@@ -23,5 +23,5 @@ start.energy  = 10
 start.fitness = 1.0
 
 
-test <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd)
+test <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
 test

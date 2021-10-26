@@ -2,7 +2,7 @@
 # Values for the distributions will be designated in the RunScript file in the base directory
 
 
-CreateSquare = function(food.probability, energy, energy.sd, temperature, temperature.sd){
+CreateSquare = function(food.probability, energy, energy.sd, temperature, temperature.sd, popualation.density){
 
 cell = matrix(ncol =  5, nrow = 1)
 
