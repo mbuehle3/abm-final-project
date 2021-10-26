@@ -1,4 +1,4 @@
-CreateInd = function(sex.ratio,start.energy,start.fitness) {
+CreateInd = function(sex.ratio,start.energy,start.energy.sd) {
 # each individual is going to be a matrix composed of five colums that have different attributes defined below
 ind = matrix(ncol = 5, nrow = 1)
 
@@ -11,9 +11,10 @@ if (sex == 1){
 }
 
 # This is how much energy each individual is starting with 
-ind[1,2] = start.energy
+ind[1,2] = rnorm(1,start.energy,start.energy.sd)
 # this is the fitess of each individual 
 ind[1,3] = start.fitness
+ind
 
 return(ind)
 }
