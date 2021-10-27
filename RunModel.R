@@ -25,12 +25,18 @@ start.energy  = 10
 start.energy.sd = 2
 start.fitness = 1.0
 
+# Something wonky here that causes negative values
+# had the energy and energy.sd backwards
+test.landscape <- CreateLandscape(landscape, food.probability, energy, energy.sd)
+test.landscape
+land
 
-test.landscape <- CreateLandscape(landscape, food.probability, energy.sd, energy)
-test
 
 test.square <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
+test.square
 
+
+pop.size = 10
 test.ind = matrix(nrow = pop.size, ncol = 5)
 for (snake in 1:pop.size){
     test.ind[snake,] = CreateInd(sex.ratio,start.energy,start.energy.sd)
@@ -38,3 +44,28 @@ for (snake in 1:pop.size){
     # append(test.ind, new.snake)
 }
 test.ind
+
+# Three nested loops to run the model 
+# first one will control the parameters
+# some object will hold the pairwise comparison values 
+# second controls the replicates
+# probably going to replicate 100 times
+# third controls the steps
+# figure out how long to run
+
+# for (p in 1:nrow(parameters)){
+        # Track the parameters here
+#     for (r in 1:replicates){
+#         for (y in 1:years){
+#             Slick code doing slick things
+#         }
+#     }
+# }
+
+
+# Add in a density probability to determine how many snakes are on the landscape pop size / cell count
+
+# Have density impact food count in some way 
+# Track cells and movements for each individual
+# p
+# 
