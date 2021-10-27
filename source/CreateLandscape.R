@@ -16,7 +16,7 @@ for (i in 1:food.cell) {
   food.cell.matrix[i,3] = rnorm(1,energy, energy.sd)
 }
 
-# food.cell.matrix
+food.cell.matrix
 # plot(food.cell.matrix)
 
 for (r in 1:nrow(food.cell.matrix)) {
@@ -24,7 +24,9 @@ for (r in 1:nrow(food.cell.matrix)) {
   land.y = food.cell.matrix[r,2]
   land[land.x, land.y] = food.cell.matrix[r,3]
 
+}
+land
+
 return(land)
 
-}
 }
