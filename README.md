@@ -33,6 +33,8 @@ The goal of this project is to use an agent based modeling approach to explore w
 * Track the number of movements in the square model, use this as a proxy for the home range size
 
 * In the landscape movement, track exact points, measure linear distance moved as well as the area inside the perimeter
+
+
 ## Current Status
 
 I am working on the movement functions and will talk to you in class about them. 

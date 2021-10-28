@@ -67,5 +67,5 @@ test.ind
 
 # Have density impact food count in some way 
 # Track cells and movements for each individual
-# p
+# 
 # 

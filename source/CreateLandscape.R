@@ -2,7 +2,7 @@
 CreateLandscape = function(landscape, food.probability, energy, energy.sd){
     # landscape = 10
     land = matrix(ncol = landscape, nrow = landscape, 0 ) # initialize the matrix landscape
-land
+# land
     # food.probability = 0.1
     total.cells = landscape * landscape
     total.cells
