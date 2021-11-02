@@ -2,7 +2,7 @@
 # Values for the distributions will be designated in the RunScript file in the base directory
 
 
-CreateSquare = function(food.probability, energy, energy.sd, temperature, temperature.sd, population.density){
+CreateSquare = function(food.probability, energy, energy.sd, temperature, temperature.sd, population.density,counter.init=0){
 
 cell = matrix(ncol =  5, nrow = 1)
 
@@ -39,6 +39,10 @@ density
 
 occupants = rbinom(1,1,density)
 occupants
+
+cell[1,4] = counter.init
+
+
 
 return(cell)
 }

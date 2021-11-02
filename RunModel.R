@@ -29,12 +29,11 @@ start.fitness = 1.0
 # had the energy and energy.sd backwards
 test.landscape <- CreateLandscape(landscape, food.probability, energy, energy.sd)
 test.landscape
-land
 
 
 test.square <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
 test.square
-
+test.square[1,4] <- test.square[1,4] + 1
 
 pop.size = 10
 test.ind = matrix(nrow = pop.size, ncol = 5)
@@ -69,3 +68,4 @@ test.ind
 # Track cells and movements for each individual
 # 
 # 
+
