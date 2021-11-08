@@ -69,3 +69,10 @@ test.ind
 # 
 # 
 
+
+snake.prob = 0.99
+snake.exp =  sqrt(snake.prob)
+
+snake.exp
+
+rexp(1,snake.prob)
