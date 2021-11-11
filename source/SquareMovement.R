@@ -1,27 +1,18 @@
+### INPUT:
+###
+### Number of generations 
+### A matrix containing all individuals
+
 # have this function generate two squares that the snake will choose between 
+
+IndMoveSqure = function(inds, gens){
 
 square.1 <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
 square.2 <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
 
-square.1[1,4] <- square.1[1,4]+1
-square.1[1,4]
-
-
-square.2
-
 food.1 = square.1[1,1]
 food.2 = square.2[1,1]
 
-food.1
-food.2
-test.ind[1,]
-# food.1 = 7
-# food.2 = 1
-
-nrow(test.ind)
-gen = 100
-
-data
 
 # cell ,1 is the food contained in the square
 # There could be something to a high carrying capacity of the landscape if there are a relatively few number of snakes there. 
@@ -48,11 +39,10 @@ data
 # tmp.ind
 
 # length(tmp.ind[,2])
-data = matrix(ncol = (ncol(test.ind)+ncol(square.1)), nrow = (nrow(test.ind)*gen))
+data = matrix(ncol = (ncol(inds)+ncol(square.1)), nrow = (nrow(inds)*gen))
 count = 1
-nrow(test.ind)
-gen
 
+# print("Moving %d indiviudals on the landscape for %d generations each", nrow(inds), gens)
 
 for (j in 1:nrow(test.ind)){
     moves = 0 
@@ -64,11 +54,11 @@ for (j in 1:nrow(test.ind)){
                 square.2 = CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
                 moves = moves + 1
                 square.1[1,4] = moves
-                print("Snake is sneaky, square 1 is empty sneaky snake moved")
+                # print("Snake is sneaky, square 1 is empty sneaky snake moved")
             } else {
                 square.1 = square.1
                 square.1[1,4] = moves
-                print("Snake Didn't Move, idiot they will starve now")
+                # print("Snake Didn't Move, idiot they will starve now")
                     }
     data[count,] <-  c(test.ind[j,], square.1)
     count = count + 1
@@ -79,11 +69,11 @@ for (j in 1:nrow(test.ind)){
                 square.2 = CreateSquare(food.probability, energy, energy.sd,        temperature, temperature.sd, population.density) 
                 moves = moves + 1
                 square.1[1,4] = moves
-                print("Snake is sneaky")
+                # print("Snake is sneaky")
             } else {
                 square.1 = square.1
                 square.1[1,4] = moves
-                print("Snake Didn't Move")
+                # print("Snake Didn't Move")
     } 
     data[count,] <-  c(test.ind[j,], square.1)
     count = count + 1
@@ -94,11 +84,11 @@ for (j in 1:nrow(test.ind)){
                 square.2 = CreateSquare(food.probability, energy, energy.sd,        temperature, temperature.sd, population.density) 
                 moves = moves + 1
                 square.1[1,4] = moves
-                print("Snake is dumb, moved to bad tile")
+                # print("Snake is dumb, moved to bad tile")
             } else {
                 square.1 = square.1
                 square.1[1,4] = moves
-                print("Snake is smart didn't move to bad tile")
+                # print("Snake is smart didn't move to bad tile")
     }
     data[count,] <-  c(test.ind[j,], square.1)
     count = count + 1
@@ -109,11 +99,11 @@ for (j in 1:nrow(test.ind)){
                 square.2 = CreateSquare(food.probability, energy, energy.sd,        temperature, temperature.sd, population.density)
                 moves = moves + 1
                 square.1[1,4] = moves
-                print("Snake is sneaky, moved to a better tile")
+                # print("Snake is sneaky, moved to a better tile")
             } else {
                 square.1 = square.1
                 square.1[1,4] = moves
-                print("Snake Didn't Move, dumb snake stayed on bad tile")
+                # print("Snake Didn't Move, dumb snake stayed on bad tile")
                     }
                     # tmp.ind.move[gen.number,] <-  c(test.ind[j,], square.1)
             data[count,] = c(test.ind[j,], square.1)
@@ -123,7 +113,5 @@ for (j in 1:nrow(test.ind)){
     
     }
 }
-
-data[,1:9]
-count
-count
+return(data)
+}

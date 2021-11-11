@@ -35,14 +35,19 @@ test.square <- CreateSquare(food.probability, energy, energy.sd, temperature, te
 test.square
 test.square[1,4] <- test.square[1,4] + 1
 
-pop.size = 10
+pop.size = 100
 test.ind = matrix(nrow = pop.size, ncol = 5)
 for (snake in 1:pop.size){
     test.ind[snake,] = CreateInd(sex.ratio,start.energy,start.energy.sd)
     # new.snake <- CreateInd(sex.ratio,start.energy,start.energy.sd)
     # append(test.ind, new.snake)
 }
+
 test.ind
+gen = 10
+
+movement.data <- IndMoveSqure(test.ind, gen)
+movement.data
 
 # Three nested loops to run the model 
 # first one will control the parameters
@@ -69,10 +74,3 @@ test.ind
 # 
 # 
 
-
-snake.prob = 0.99
-snake.exp =  sqrt(snake.prob)
-
-snake.exp
-
-rexp(1,snake.prob)
