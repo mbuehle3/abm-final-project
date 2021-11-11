@@ -33,7 +33,7 @@ food.2 = square.2[1,1]
 # This needs to also incorporate something about the popualtion density
 # Also record the  movement to some output file, 
 # the counter is in square.x [1,4]
-# tmp.ind <- as.matrix(test.ind)
+# tmp.ind <- as.matrix(inds)
 # tmp.ind
 
 # tmp.ind
@@ -44,7 +44,7 @@ count = 1
 
 # print("Moving %d indiviudals on the landscape for %d generations each", nrow(inds), gens)
 
-for (j in 1:nrow(test.ind)){
+for (j in 1:nrow(inds)){
     moves = 0 
     for ( i in 1:(gen)) {
     if (food.1 == 0) {
@@ -60,7 +60,7 @@ for (j in 1:nrow(test.ind)){
                 square.1[1,4] = moves
                 # print("Snake Didn't Move, idiot they will starve now")
                     }
-    data[count,] <-  c(test.ind[j,], square.1)
+    data[count,] <-  c(inds[j,], square.1)
     count = count + 1
     } else if (food.1 - food.2 <= energy.sd) { 
         move = rbinom(1,1,0.5)
@@ -75,7 +75,7 @@ for (j in 1:nrow(test.ind)){
                 square.1[1,4] = moves
                 # print("Snake Didn't Move")
     } 
-    data[count,] <-  c(test.ind[j,], square.1)
+    data[count,] <-  c(inds[j,], square.1)
     count = count + 1
     } else if (food.1 - food.2 > energy.sd) { # remove 1 energy from the square
         move = rbinom(1,1,0.3)
@@ -90,7 +90,7 @@ for (j in 1:nrow(test.ind)){
                 square.1[1,4] = moves
                 # print("Snake is smart didn't move to bad tile")
     }
-    data[count,] <-  c(test.ind[j,], square.1)
+    data[count,] <-  c(inds[j,], square.1)
     count = count + 1
     } else if (food.1 - food.2 < (-1*energy.sd)) {
         move = rbinom(1,1,0.8)
@@ -105,8 +105,8 @@ for (j in 1:nrow(test.ind)){
                 square.1[1,4] = moves
                 # print("Snake Didn't Move, dumb snake stayed on bad tile")
                     }
-                    # tmp.ind.move[gen.number,] <-  c(test.ind[j,], square.1)
-            data[count,] = c(test.ind[j,], square.1)
+                    # tmp.ind.move[gen.number,] <-  c(inds[j,], square.1)
+            data[count,] = c(inds[j,], square.1)
             count = count + 1
     }
 
