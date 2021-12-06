@@ -5,7 +5,7 @@
 
 # have this function generate two squares that the snake will choose between 
 
-IndMoveSqure = function(inds, gens){
+IndMoveSquare = function(inds, gens){
 
 square.1 <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
 square.2 <- CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
@@ -96,7 +96,7 @@ for (j in 1:nrow(inds)){
         move = rbinom(1,1,0.8)
             if (move == 1) {
                 square.1 = square.2
-                square.2 = CreateSquare(food.probability, energy, energy.sd,        temperature, temperature.sd, population.density)
+                square.2 = CreateSquare(food.probability, energy, energy.sd, temperature, temperature.sd, population.density)
                 moves = moves + 1
                 square.1[1,4] = moves
                 # print("Snake is sneaky, moved to a better tile")
@@ -113,5 +113,7 @@ for (j in 1:nrow(inds)){
     
     }
 }
+data = data[,c(-3,-5)]
+colnames(data) = c("sex", "energy", "ind.num", "ind.energy", "temp", "blank", "movement.num", "blank_2")
 return(data)
 }
