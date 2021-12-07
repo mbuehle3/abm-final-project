@@ -1,6 +1,6 @@
 # This is where you change variables to manipulate the model
 setwd("abm-final-project")
-getwd()
+dir <- getwd()
 source("source/FunctionSourcer.R")
 
 #############################################
@@ -99,12 +99,12 @@ for (p in 1:nrow(parameters)){
 
 
 # plot the results 
-
-results = list.files(path = dir, pattern = paste(c("*.csv")))
+setwd("output/")
+output.dir <- getwd()
+results = list.files(path = output.dir , pattern = paste(c("*.csv")))
 results
+setwd("..")
 
-
-source("source/FunctionSourcer.R")
 
 # Plot the data for quick visualization
 # plots are in the plot directory
@@ -114,8 +114,8 @@ for (i in results){
 
 
 
-medians = matrix(ncol = ncol(parameters) + 1, nrow = length(results))
-medians
+medians = matrix(ncol = ncol(parameters) + 2, nrow = length(results))
+# medians
 med.counter = 1
 for (m in results) {
     x <- read.csv(paste("output/",m,sep = ""), header = TRUE)
@@ -123,14 +123,11 @@ for (m in results) {
     m.naked <- tools::file_path_sans_ext(m)
     m.naked
     split <- strsplit(m.naked, '-')[[1]]
-    medians[med.counter,] <- paste(c(parameters[split[2]], split[4], median(as.numeric(x$movement.num))))
+    medians[med.counter,] <- paste(c(parameters[split[2],], split[4], median(as.numeric(x$movement.num))))
     med.counter = med.counter +1
 }
 
-medians
-
-
-m
-split
-split[2]
-split[4]
+colnames(medians) = c("food.probability", "energy", "energy.sd", "temperature", "temperature.sd", "population.density","pop.size","sex.ratio", "replicate_num", "median_moves")
+# medians
+# getwd()
+write.csv(medians, "parameter-median.csv")
